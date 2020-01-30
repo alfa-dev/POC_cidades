@@ -40,8 +40,8 @@
     cidadesEXT.map(function(i) {
       var option = document.createElement('option');
 
-      option.value = i.split('-')[0];
-      option.innerHTML = i.split('-')[1];
+      option.innerHTML = i.split('-')[0];
+      option.value = i.split('-')[0] + ' - ' + i.split('-')[1];
 
       cidades.appendChild(option);
     });
