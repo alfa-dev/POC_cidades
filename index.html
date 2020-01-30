@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>cidades</title>
+</head>
+
+<style>
+  form {
+    text-align: center;
+  }
+
+  input {
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 2px solid #ccc;
+  }
+
+</style>
+<body>
+  <script src="cidades.js"></script>
+
+  <form action="">
+    <input  type="text" autocomplete="off" list="cidades">
+    <datalist id="cidades"></datalist>
+  </form>
+
+  <script>
+    var cidadesEXT = cidades.estados.map(function(e){
+        return e.cidades.map(function(c){
+            return `${e.sigla}-${c}`
+        }).join(',');
+    }).join(',').split(',');
+
+    var cidades = document.querySelector('#cidades');
+
+    cidadesEXT.map(function(i) {
+      var option = document.createElement('option');
+
+      option.value = i.split('-')[0];
+      option.innerHTML = i.split('-')[1];
+
+      cidades.appendChild(option);
+    });
+  </script>
+</body>
+</html>
